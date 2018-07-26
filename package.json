@@ -1,0 +1,94 @@
+{
+  "engines": {
+    "node": "9.x.x",
+    "npm": "5.x.x"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typedoc": "^0.11.1",
+    "mocha": "^4.1.0",
+    "prettier": "^1.11.1",
+    "@atomist/automation-client": "0.18.0-20180704102519",
+    "typescript-formatter": "^7.2.0",
+    "power-assert": "^1.4.4",
+    "@atomist/sdm": "0.3.2-20180716044057",
+    "@types/power-assert": "^1.4.29",
+    "supervisor": "^0.12.0",
+    "typescript": "2.8.3",
+    "@types/node": "^9.4.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.9.1",
+    "@atomist/sdm-pack-spring": "0.1.7-20180715090742",
+    "espower-typescript": "^8.1.3",
+    "npm-run-all": "^4.1.2",
+    "@atomist/sdm-core": "0.3.2-20180716045144",
+    "rimraf": "^2.6.2",
+    "@types/mocha": "^2.2.48",
+    "graphql-code-generator": "^0.8.19",
+    "apollo-codegen": "^0.19.1"
+  },
+  "dependencies": {
+    "@atomist/clj-editors": "0.2.13",
+    "npm-test": "0.0.21",
+    "npm-test-1": "0.0.9",
+    "npm-test-2": "0.0.1"
+  },
+  "author": "Atomist, Inc.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atomist/sdm-pack-fingerprints.git"
+  },
+  "homepage": "https://github.com/atomist/sdm-pack-fingerprints#readme",
+  "name": "@atomist/sdm-pack-fingerprints",
+  "keywords": [
+    "atomist",
+    "automation",
+    "sdm",
+    "clojure",
+    "fingerprints"
+  ],
+  "peerDependencies": {
+    "@atomist/automation-client": "^0.18.0",
+    "@atomist/sdm": "^0.3.2",
+    "@atomist/sdm-core": "^0.3.2"
+  },
+  "bugs": {
+    "url": "https://github.com/atomist/sdm-pack-fingerprints/issues"
+  },
+  "version": "0.1.0",
+  "description": "an Atomist SDM Extension Pack for fingerprinting code",
+  "scripts": {
+    "compile:ts": "tsc --project .",
+    "compile:gql": "npm-run-all gql:gen gql:copy",
+    "typedoc": "typedoc --mode modules --excludeExternals --out build/typedoc src",
+    "lint:ts:fix": "npm run lint:ts -- --fix",
+    "clean:build": "rimraf *-v8.log profile.txt build",
+    "gql:copy": "copyfiles \"./src/**/*.graphql\" build",
+    "lint": "npm-run-all lint:ts",
+    "fmt": "npm-run-all fmt:ts fmt:gql",
+    "watch": "supervisor --watch build --quiet --exec npm -- run start",
+    "lint:fix": "npm-run-all lint:ts:fix",
+    "start": "atomist start --no-install --no-compile",
+    "build": "npm-run-all compile test lint typedoc",
+    "lint:gql": "prettier --list-different \"src/graphql/**/*.graphql\"",
+    "debug": "node $NODE_DEBUG_OPTION node_modules/@atomist/automation-client/start.client.js",
+    "lint:ts": "tslint --format verbose --project . --exclude \"{build,node_modules}/**\" \"**/*.ts\"",
+    "compile": "npm-run-all git:info compile:gql compile:ts",
+    "fmt:ts": "tsfmt --replace",
+    "clean:dist": "npm-run-all clean clean:npm",
+    "fmt:gql": "prettier --write \"**/*.graphql\"",
+    "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.ts}\"",
+    "clean": "npm-run-all clean:js clean:build",
+    "autostart": "npm-run-all --print-label --parallel watch:compile watch",
+    "watch:compile": "tsc --project . --watch",
+    "clean:js": "rimraf \"{src,test}/**/*.js\"",
+    "clean:npm": "rimraf node_modules",
+    "git:info": "atomist git",
+    "autotest": "supervisor --watch src,test --extensions ts --no-restart-on exit --quiet --exec npm -- test",
+    "test": "mocha --exit --require espower-typescript/guess \"test/**/*.ts\"",
+    "gql:gen": "atomist gql-gen --no-install \"src/graphql/**/*.graphql\""
+  }
+}
