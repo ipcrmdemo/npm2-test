@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@atomist/clj-editors": "0.4.1",
-    "@atomist/sdm-pack-npmtest": "0.2.7"
+    "@slimslender/npm-test": "0.2.7"
   },
   "author": "Atomist, Inc.",
   "repository": {
@@ -36,7 +36,7 @@
     "url": "https://github.com/atomist/sdm-pack-fingerprints.git"
   },
   "homepage": "https://github.com/atomist/sdm-pack-fingerprints#readme",
-  "name": "@atomist/npm2-test",
+  "name": "@slimslender/npm2-test",
   "keywords": [
     "atomist",
     "automation",
