@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@atomist/clj-editors": "0.4.1",
-    "@slimslender/npm-test": "0.2.15"
+    "@slimslender/npm-test": "0.2.16"
   },
   "author": "Atomist, Inc.",
   "repository": {
