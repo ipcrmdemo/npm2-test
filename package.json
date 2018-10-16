@@ -66,7 +66,7 @@
     "watch": "supervisor --watch build --quiet --exec npm -- run start",
     "lint:fix": "npm-run-all lint:ts:fix",
     "start": "atomist start --no-install --no-compile",
-    "build": "npm-run-all compile test lint typedoc",
+    "build": "echo testbuild",
     "lint:gql": "prettier --list-different \"src/graphql/**/*.graphql\"",
     "debug": "node $NODE_DEBUG_OPTION node_modules/@atomist/automation-client/start.client.js",
     "lint:ts": "tslint --format verbose --project . --exclude \"{build,node_modules}/**\" \"**/*.ts\"",
