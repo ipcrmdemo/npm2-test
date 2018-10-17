@@ -1,0 +1,9 @@
+{
+  "sdm": {
+    "publish": {
+      "tag": {
+        "defaultBranch": "true"
+      }
+    }
+  }
+}
