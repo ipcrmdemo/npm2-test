@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@atomist/clj-editors": "0.4.1",
-    "@ipcrmdemo/npm-test": "0.2.34"
+    "@ipcrmdemo/npm-test": "0.2.53"
   },
   "author": "Atomist, Inc.",
   "repository": {
