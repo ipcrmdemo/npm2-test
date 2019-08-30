@@ -27,7 +27,7 @@
     "apollo-codegen": "^0.19.1"
   },
   "dependencies": {
-    "@atomist/clj-editors": "0.4.1",
+    "@atomist/clj-editors": "^0.7.4",
     "@ipcrmdemo/npm-test": "0.2.55"
   },
   "author": "Atomist, Inc.",
